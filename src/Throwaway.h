@@ -1,0 +1,11 @@
+#include "Targetable.h"
+#include "Soul.h"
+#include "Shooter.h"
+#include "Enemy.h"
+#include "Thrower.h"
+#include "Kirby.h"
+
+#include "TextureStore.h"
+#include "Director.h"
+#include "InputReactor.h"
+#include "RoomLoader.h"
