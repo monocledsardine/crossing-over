@@ -24,19 +24,20 @@ endif(SFML_FOUND)
 # Include SFML header files
 include_directories(${SFML_INCLUDE_DIR})
 
-
-
 # Raw list of Death game source files
 set(DEATH_SRC 
 	Action.h
 	Actor.h
 	Actor.cpp
+	Animation.h
+	Animation.cpp
 	Cameraman.h
 	Cameraman.cpp
 	Director.h
 	Director.cpp
 	Enemy.h
 	Enemy.cpp
+	ImageRef.h
 	InputReactor.h
 	InputReactor.cpp
 	Kirby.h
@@ -56,6 +57,8 @@ set(DEATH_SRC
 	TextureStore.cpp
 	ThrowawayRoom.h
 	Thrower.h
+	TiledImage.h	
+	TiledImage.cpp
 	Thrower.cpp
 	ZSprite.h
 )
@@ -77,3 +80,5 @@ install(FILES ${SFML_DIR}/bin/sfml-system-2.dll
 
 # ...and 3. Images
 install(DIRECTORY images DESTINATION .)
+#
+add_subdirectory(TestSuite)

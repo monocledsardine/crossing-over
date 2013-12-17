@@ -1,0 +1,1 @@
+#include "TextureLoading_Test.h"#include <SFML/Graphics.hpp>void TextureLoadingTest::draw(sf::RenderTarget& target, sf::RenderStates states) const{	target.draw(spr);}
