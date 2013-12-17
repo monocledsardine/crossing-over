@@ -5,7 +5,7 @@ Cameraman::Cameraman(void)
 {
 }
 
-void Cameraman::addSubject(ZSprite* x)
+void Cameraman::addSubject(Actor* x)
 {
 	subjects.push_back(x);
 }
@@ -17,7 +17,7 @@ template <typename T> bool PComp(const T * const & a, const T * const & b)
 
 void Cameraman::sort()
 {
-	std::sort(subjects.begin(), subjects.end(), PComp<ZSprite>);
+	std::sort(subjects.begin(), subjects.end(), PComp<Actor>);
 }
 
 void Cameraman::draw(sf::RenderTarget& target, sf::RenderStates states) const

@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include "TextureStore.h"
 #include "Mask.h"
-#include "ZSprite.h"
 #include "Shadow.h"
 #include "Motion.h"
 
@@ -16,8 +15,7 @@ class Director;
 /////
 ////////////////////////////////////////////////////////////////
 
-class Actor :
-	public ZSprite
+class Actor : public sf::Sprite
 {
 public: 
 	Actor(Director& d);
@@ -49,6 +47,12 @@ public:
 	
 	Motion motion;
 	static sf::Texture* shadowTexture;
+	
+	float z;
+	float getZ() const { return z; }
+
+	bool operator<(const Actor& other) const { return getPosition().y < other.getPosition().y; }
+	
 protected:
 	bool active;
 	Shadow shadow;
@@ -69,4 +73,10 @@ protected:
 	// as well as relative location of the object.
 	sf::FloatRect mask;
 };
+
+class Face : public sf::Sprite
+{
+	
+};
+
 #endif //_ACTOR_H

@@ -2,9 +2,9 @@
 #define _SHADOW_H
 
 #include <SFML\Graphics.hpp>
-#include "ZSprite.h"
+#include "Actor.h"
 
-
+class Actor;
 ////////////////////////////////////////////////////////////////
 ///// 
 ///// Shadowable: has a drawable shadow attached to it 
@@ -15,15 +15,15 @@ class Shadow :
 {
 public:
 	Shadow() {}
-	Shadow(ZSprite* source) : source(source) {}
+	Shadow(Actor* source) : source(source) {}
 
-	void setSource(ZSprite* src)
+	void setSource(Actor* src)
 	{
 		source = src;
 	}
 
 	virtual ~Shadow() {}
 private:
-	ZSprite* source;
+	Actor* source;
 };
 #endif // _SHADOW_H

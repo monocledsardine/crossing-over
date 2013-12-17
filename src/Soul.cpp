@@ -33,13 +33,13 @@ void Soul::endStep(const sf::Time& time)
 				targetStatus = NONE;
 				break;
 			} else
-				motion.zVelocity = 10;
+				motion.zVelocity = 100;
 		} else if (z < 0)
 		{
 			z = 0;
 			motion.zVelocity = 0;
 		} else {
-			motion.zVelocity -= 1;
+			motion.zVelocity -= 20;
 		}
 
 		break;

@@ -2,7 +2,7 @@
 #include <math.h>
 
 Motion::Motion() :
-	gravity(0.0f), friction(0.0f), maxSpeed(0.0f), maxZSpeed(0.0f)
+	gravity(0.0f), friction(0.0f), maxSpeed(-1.0f), maxZSpeed(-1.0f)
 {
 	velocity *= 0.0f;
 	zVelocity = 0.0f;
@@ -36,17 +36,21 @@ void Motion::applyMaxSpeed()
 	float x2	= velocity.x*velocity.x;
 	float y2	= velocity.y*velocity.y;
 	float max2	= maxSpeed*maxSpeed;
-
-	if (x2 + y2 > max2 && max2 > 0.0f)
-	{
-		float speedLimiter = sqrt((x2 + y2)/max2);
-		velocity.x /= speedLimiter;
-		velocity.y /= speedLimiter;
-	}
+	
+	if (maxSpeed >= 0.0f)
+		if (x2 + y2 > max2 && max2 > 0.0f)
+		{
+			float speedLimiter = sqrt((x2 + y2)/max2);
+			velocity.x /= speedLimiter;
+			velocity.y /= speedLimiter;
+		}
 
 	// z speed
-	if (zVelocity > maxZSpeed)
-		zVelocity = maxZSpeed;
-	if (zVelocity < -maxZSpeed)
-		zVelocity = -maxZSpeed;
+	if (maxZSpeed >= 0.0f)
+	{
+		if (zVelocity > maxZSpeed)
+			zVelocity = maxZSpeed;
+		if (zVelocity < -maxZSpeed)
+			zVelocity = -maxZSpeed;
+	}
 }

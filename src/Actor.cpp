@@ -32,13 +32,11 @@ void Actor::update(const sf::Time& time)
 
 	setPosition(getPosition() + motion.velocity*time.asSeconds());
 	
-	z += motion.zVelocity;
+	z += motion.zVelocity*time.asSeconds();
 
 	if (z < 0)
 	{
-		z = 0;
 		land();
-		motion.zVelocity = 0.0f;
 	} else if (z > 0) 
 	{
 		motion.applyGravity();
